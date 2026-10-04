@@ -20,9 +20,7 @@ body{background:radial-gradient(ellipse at 50% 40%,#1a0d0a 0%,#0a0809 60%) fixed
 /* preloader */
 .loader{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:#070506;color:var(--ink)}
 .ld-in{display:flex;flex-direction:column;align-items:center;gap:26px}
-.ld-mark{width:92px;height:92px;overflow:visible}
-.ld-mark path{stroke-dasharray:var(--len,200);stroke-dashoffset:var(--len,200)}
-.ld-sun{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0)}
+.ld-mark{width:92px;height:92px;object-fit:contain;opacity:0}
 .ld-word{display:flex;font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:.42em;overflow:hidden;direction:ltr}
 .ld-word span{display:inline-block;transform:translateY(110%)}
 .ld-word span:nth-child(n+5){color:var(--gold)}

@@ -34,17 +34,13 @@
   function rollLinks() { $$('.roll').forEach(a => { const t = a.textContent; a.innerHTML = `<span class="rl"><span>${t}</span><span>${t}</span></span>`; }); }
 
   /* ---------- preloader ---------- */
-  $$('.ld-mark path').forEach(p => { if (p.getTotalLength) p.style.setProperty('--len', p.getTotalLength()); });
   gsap.set('.h-fade', { opacity: 0, y: 24 });
   const num = $('#ldNum'), cnt = { v: 0 };
   let loaded = document.readyState === 'complete';
   addEventListener('load', () => loaded = true);
   const ld = gsap.timeline();
   ld.to('.ld-word span', { y: 0, duration: 1, stagger: 0.06, ease: 'expo.out' }, 0.1)
-    .to('.ld-a', { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut' }, 0.1)
-    .to('.ld-h', { strokeDashoffset: 0, duration: 1, ease: 'power2.inOut' }, 0.5)
-    .to('.ld-sun', { scaleY: 1, duration: 1, ease: 'expo.out' }, 0.9)
-    .to('.ld-one', { strokeDashoffset: 0, duration: .7, ease: 'power3.out' }, 1.2)
+    .fromTo('.ld-mark', { opacity: 0, scale: .8, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: 'expo.out' }, 0.1)
     .to(cnt, { v: 100, duration: 2, ease: 'power2.inOut', onUpdate: () => num.textContent = Math.round(cnt.v) }, 0);
   ld.eventCallback('onComplete', () => {
     const go = () => {
